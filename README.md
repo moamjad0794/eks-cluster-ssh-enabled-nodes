@@ -93,7 +93,6 @@ Make sure your SSH key is available locally and that the node security group all
 ssh -i my-bastion-key-01.pem ec2-user@<node-ip>
 ```
 
-Note: EKS nodes do not expose public IPs by default unless modified. You may access via bastion or allocate an EIP.
 
 ---
 
