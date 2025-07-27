@@ -50,15 +50,16 @@ You may configure remote state or use local backend as configured in the repo.
 
 Get your IPv4 address from the below website and update development/locals.tf file
 
+https://whatismyipaddress.com/
+
 locals {
-  # my_ip = "${data.external.myip.result.ip}/32"
+  
   my_ip = "106.200.30.169/32"
 
 }
 
 if your cluster is created successfully and unable to fetch the node details, you may not have correct IP added to access the cluster
 
-https://whatismyipaddress.com/
 
 ### Generate your key pairs to ssh in k8s nodes and update the key name as given in your console without extension
 
