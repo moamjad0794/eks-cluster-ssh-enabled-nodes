@@ -48,12 +48,25 @@ You may configure remote state or use local backend as configured in the repo.
 
 ### 2. Define Your Terraform Variables
 
-Copy `terraform.tfvars.example` to `terraform.tfvars` and update your values:
+Get your IPv4 address from the below website and update development/locals.tf file
+
+locals {
+  # my_ip = "${data.external.myip.result.ip}/32"
+  my_ip = "106.200.30.169/32"
+
+}
+
+if your cluster is created successfully and unable to fetch the node details, you may not have correct IP added to access the cluster
+
+https://whatismyipaddress.com/
+
+### Generate your key pairs to ssh in k8s nodes and update the key name as given in your console without extension
+
+Update `terraform.tfvars` and update your values:
 
 ```hcl
 region        = "us-east-1"
-key_name      = "my-bastion-key"
-my_ip         = "YOUR_PUBLIC_IP/32"
+key_name      = "my-test-key"
 ```
 
 ### 3. Initialize Terraform
@@ -82,6 +95,18 @@ kubectl get nodes
 ```
 
 You should see your worker nodes in `Ready` state.
+
+
+### Now Execute the following command
+
+aws eks --region us-east-1 update-kubeconfig --name myekscluster
+
+### To see your cluster
+
+kubectl config get-contexts
+
+Verify the cluster arn is same as in console.
+
 
 ---
 
