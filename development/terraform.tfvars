@@ -1,2 +1,2 @@
 cluster_name = "myekscluster"
-key_name     = "my-bastionhost-key-01"
+key_name     = "my-test-key-delete"
